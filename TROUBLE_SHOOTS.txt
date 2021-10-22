@@ -1,0 +1,46 @@
+## Slack
+# Slack integration for the CircleCI: https://github.com/CircleCI-Public/slack-orb/wiki/Setup
+# https://circleci.com/blog/circleci-slack-integration/
+# https://circleci.com/blog/continuous-integration-slack-twilio/
+
+## Prometheus
+# https://codewizardly.com/prometheus-on-aws-ec2-part1/
+
+# Prometheus SG ports
+# port 9090 for Prometheus server
+# port 9100 for Prometheus Node Exporter
+# port 9093 for the Alertmanager
+
+# CHECK PROMETHEUS LOG FILES:
+
+# $ journalctl -u prometheus
+# $ sudo systemctl status alertmanager
+# $ sudo systemctl status prometheus
+# $ sudo systemctl restart prometheus
+# $ journalctl -u alertmanager.service
+
+# permissions on /data/prometheus should be set to prometheus user and group.
+
+# so the sollution is: sudo chown -R prometheus:prometheus /data/prometheus/
+# check all the YML files for the prometheus configuration
+
+
+Check Prometheus rules:
+
+promtool check rules /etc/prometheus/rules.yml
+
+
+
+# MEMSTASH_TOKEN = 6ed5a0ac-f56b-48c8-b21a-9c350777668b
+
+
+CLOUDFRONT ISSUE 
+
+Mixed Content: The page at 'https://d3qxpzawaycmw5.cloudfront.net/#/employees' was loaded over HTTPS, but requested an 
+insecure resource 'http://ec2-3-86-60-146.compute-1.amazonaws.com:3030/api/Employees?'. This request has been blocked; 
+the content must be served over HTTPS.
+
+
+Secure Nginx with Let's Encrypt on Ubuntu 20.04: [https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04]
+
+Install Self-signed SSL in Ubuntu: [https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-18-04]

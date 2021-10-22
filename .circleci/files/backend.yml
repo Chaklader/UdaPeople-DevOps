@@ -1,0 +1,64 @@
+Description: >
+    UdaPeople backend stack.
+
+Parameters:
+    ID:
+        Description: Unique identifier.
+        Type: String
+
+# 9100 port opend for the Node exporter
+# 443 is for the HTTPS connection
+Resources:
+    InstanceSecurityGroup:
+        Type: AWS::EC2::SecurityGroup
+        Properties:
+            GroupName: !Sub UdaPeople-${ID}
+            GroupDescription: Allow port 22 and port 3030.
+            SecurityGroupIngress:
+                - IpProtocol: tcp
+                  FromPort: 22
+                  ToPort: 22
+                  CidrIp: 0.0.0.0/0
+                - IpProtocol: tcp
+                  FromPort: 3030
+                  ToPort: 3030
+                  CidrIp: 0.0.0.0/0
+                - IpProtocol: tcp
+                  FromPort: 8080
+                  ToPort: 8080
+                  CidrIp: 0.0.0.0/0
+                - IpProtocol: tcp
+                  FromPort: 443
+                  ToPort: 443
+                  CidrIp: 0.0.0.0/0
+                - IpProtocol: tcp
+                  FromPort: 9100
+                  ToPort: 9100
+                  CidrIp: 0.0.0.0/0
+                - IpProtocol: tcp
+                  FromPort: 9090
+                  ToPort: 9090
+                  CidrIp: 0.0.0.0/0
+                - IpProtocol: tcp
+                  FromPort: 9093
+                  ToPort: 9093
+                  CidrIp: 0.0.0.0/0
+
+    # ImageId: ami-09e67e426f25ce0d7 t2.micro
+    # ImageId: ami-09e67e426f25ce0d7 t2.medium
+
+    EC2Instance:
+        Type: AWS::EC2::Instance
+        Properties:
+            InstanceType: t2.micro
+            SecurityGroups:
+                - Ref: InstanceSecurityGroup
+            KeyName: udacity
+            ImageId: ami-09e67e426f25ce0d7
+            Tags:
+                - Key: Name
+                  Value: !Sub backend-${ID}
+Outputs:
+    WebsiteURL:
+        Value: !GetAtt EC2Instance.PublicDnsName
+        Description: Public DNS address for the deployed Ec2 instance

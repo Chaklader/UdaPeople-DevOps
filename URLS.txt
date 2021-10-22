@@ -1,0 +1,16 @@
+
+CI/CD URLS
+----------
+
+        1. URL to public GitHub repository: [https://github.com/Chaklader/UdaPeople-DevOps]
+
+        2. Provide the public URL for your S3 Bucket AKA front-end: [udapeople-23fee3bb-5f50-4e47-a4b0-2ba31fef8d9a.s3-website-us-east-1.amazonaws.com]
+
+        3. Provide the URL for deployed and functioning front-end application in CloudFront aka, production front-end: [http://d3aljsjls4hp0g.cloudfront.net]
+
+        4. Provide the URL for healthy backend application. The backend endpoint status should show a healthy response. [http://ec2-54-162-39-252.compute-1.amazonaws.com:3030/api/status]
+
+        5. Provide the URL of your Prometheus Server. [http://18.212.42.175:9090/]
+
+
+

@@ -1,0 +1,33 @@
+- name: Copy backend files
+  become: true
+  copy:
+      src: /home/backend.tar.gz
+      dest: /home/ubuntu/backend.tar.gz
+
+- name: Start PM2
+  shell: |
+      cd /home/ubuntu/
+      tar xzvf backend.tar.gz
+
+      cd backend
+
+      sudo npm install -g npm@latest
+      sudo npm install -g webpack-dev-server
+      sudo npm install
+      sudo npm run build
+      sudo pm2 start npm --name backend -- start
+
+# - name: start pm2 for dist/main.js
+#   become: no
+#   shell: |
+#       sudo chown ubuntu:ubuntu /home/ubuntu/.pm2/rpc.sock /home/ubuntu/.pm2/pub.sock
+#       pm2 start main.js
+#   args:
+#       chdir: /home/ubuntu/backend/dist
+
+# /root/project
+
+# LICENSE.md              images                  udapeople.png
+# README.md               instructions            util
+# backend                 package-lock.json
+# frontend                udapeople-pipeline.png

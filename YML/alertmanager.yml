@@ -1,0 +1,30 @@
+# global:
+#     resolve_timeout: 1m
+#     slack_api_url: 'https://hooks.slack.com/services/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'
+
+# route:
+#     receiver: 'slack-notifications'
+
+# # OMI.CHAKLADER@GMAIL.COM
+# # alert   [lqirnloavflbyzzv]
+# # alert   [lqirnloavflbyzzv]
+
+# receivers:
+#     - name: 'slack-notifications'
+#       slack_configs:
+#           - channel: '#monitoring-ec2-servers'
+#             send_resolved: true
+
+route:
+    group_by: [Alertname]
+    receiver: email-me
+
+receivers:
+    - name: email-me
+      email_configs:
+          - to: CHAKLADER.A.AREFE@GMAIL.COM
+            from: OMI.CHAKLADER@GMAIL.COM
+            smarthost: smtp.gmail.com:587
+            auth_username: OMI.CHAKLADER@GMAIL.COM
+            auth_identity: OMI.CHAKLADER@GMAIL.COM
+            auth_password: AUTH_PASSWORD
