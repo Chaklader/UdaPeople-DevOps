@@ -1,6 +1,9 @@
 [![CircleCI](https://circleci.com/gh/Chaklader/UdaPeople-DevOps/tree/main.svg?style=svg)](https://circleci.com/gh/Chaklader/UdaPeople-DevOps/tree/main)
 
-## Give your Application Auto-Deploy Superpowers
+# Give your Application Auto-Deploy Superpowers
+
+
+<br>
 
 In this project, you will prove your mastery of the following learning objectives:
 
@@ -9,7 +12,7 @@ In this project, you will prove your mastery of the following learning objective
 -   Utilize a configuration management tool to accomplish deployment to cloud-based servers.
 -   Surface critical server errors for diagnosis using centralized structured logging.
 
-![Diagram of CI/CD Pipeline we will be building.](udapeople.png)
+<br>
 
 ### Built With
 
@@ -22,7 +25,10 @@ In this project, you will prove your mastery of the following learning objective
 
 <br>
 
-![Free Memory](images/PIPELINE.png)
+
+<img src="images/PIPELINE_DIAGRAM.png">
+figure: CI/CD Pipeline Diagram
+<br>
 
 <br>
 
